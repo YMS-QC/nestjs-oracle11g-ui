@@ -1,0 +1,60 @@
+{
+  "app": {
+    "account": "賬號",
+    "captcha": "驗證碼",
+    "check": "確 認",
+    "goLogin": "去登錄",
+    "login": "登 錄",
+    "logout": "退出登錄",
+    "newPassword": "新密碼",
+    "password": "密碼",
+    "preferences": "偏好設置",
+    "hotkeys": "熱鍵介紹",
+    "sendCaptcha": "發送驗證碼",
+    "search": {
+      "text": "搜索",
+      "type": {
+        "menu": "搜索導航菜單",
+        "tab": "搜索標籤頁"
+      },
+      "input": "支持標題、拼音(首字母)、URL模糊查詢",
+      "empty": "沒有找到你想要的",
+      "up_down": "切換",
+      "enter": "訪問",
+      "esc": "退出"
+    },
+    "tabbar": {
+      "reload": "重新載入",
+      "close": "關閉標籤頁",
+      "pin": "固定",
+      "unpin": "取消固定",
+      "maximize": "最大化",
+      "newWindow": "新窗口中打開",
+      "searchTabs": "搜索標籤頁",
+      "closeOtherSide": "關閉其它標籤頁",
+      "closeLeftSide": "關閉左側標籤頁",
+      "closeRightSide": "關閉右側標籤頁"
+    }
+  },
+  "route": {
+    "undefined": "[ 無標題 ]",
+    "home": "主頁",
+    "login": "登錄",
+    "personal": {
+      "notification": "通知中心"
+    },
+    "multimenu": {
+      "root": "多級導航",
+      "page": "導航1",
+      "level2": {
+        "root": "導航2",
+        "page": "導航2-1",
+        "level3": {
+          "root": "導航3",
+          "page1": "導航2-2-1",
+          "page2": "導航2-2-2"
+        }
+      }
+    }
+  }
+}

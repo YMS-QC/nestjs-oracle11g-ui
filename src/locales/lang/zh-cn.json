@@ -1,0 +1,60 @@
+{
+  "app": {
+    "account": "工号",
+    "captcha": "验证码",
+    "check": "确认",
+    "goLogin": "去登录",
+    "login": "登录",
+    "logout": "退出登录",
+    "newPassword": "新密码",
+    "password": "密码",
+    "preferences": "偏好设置",
+    "hotkeys": "快捷键介绍",
+    "sendCaptcha": "发送验证码",
+    "search": {
+      "text": "搜索",
+      "type": {
+        "menu": "搜索导航菜单",
+        "tab": "搜索标签页"
+      },
+      "input": "支持标题、拼音(首字母)、URL模糊查询",
+      "empty": "没有找到你想要的",
+      "up_down": "切换",
+      "enter": "访问",
+      "esc": "退出"
+    },
+    "tabbar": {
+      "reload": "重新加载",
+      "close": "关闭标签页",
+      "pin": "固定",
+      "unpin": "取消固定",
+      "maximize": "最大化",
+      "newWindow": "新窗口中打开",
+      "searchTabs": "搜索标签页",
+      "closeOtherSide": "关闭其它标签页",
+      "closeLeftSide": "关闭左侧标签页",
+      "closeRightSide": "关闭右侧标签页"
+    }
+  },
+  "route": {
+    "undefined": "[ 无标题 ]",
+    "home": "主页",
+    "login": "登录",
+    "personal": {
+      "notification": "通知中心"
+    },
+    "multimenu": {
+      "root": "多级导航",
+      "page": "导航1",
+      "level2": {
+        "root": "导航2",
+        "page": "导航2-1",
+        "level3": {
+          "root": "导航3",
+          "page1": "导航2-2-1",
+          "page2": "导航2-2-2"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+// 全局变量
+
+// 因为这两个变量会使用在 @media 上，而 @media 不支持使用 css var ，所以使用 scss var 代替
+// https://stackoverflow.com/questions/40722882/css-native-variables-not-working-in-media-queries
+$g-app-width: 1400px;
+$g-header-width: 100%;

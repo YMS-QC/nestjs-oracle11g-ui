@@ -1,0 +1,178 @@
+// 页面布局 CSS 变量
+:root {
+  // 这是一个复合变量
+  // 当页宽模式为 adaption-min-width 时，它代表 最小宽度
+  // 当页宽模式为 center 时，它代表 固定宽度
+  // 当页宽模式为 center-max-width 时，它代表 最大宽度
+  --g-app-width: #{$g-app-width};
+  // 头部宽度（默认自适应宽度，可固定宽度，固定宽度后为居中显示）
+  --g-header-width: #{$g-header-width};
+  // 头部高度
+  --g-header-height: 60px;
+  // 侧边栏宽度
+  --g-main-sidebar-width: 80px;
+  --g-sub-sidebar-width: 220px;
+  // 调整侧边栏缩进后展示宽度
+  --g-sub-sidebar-collapse-width: 12px;
+  // 侧边栏 Logo 区域高度
+  --g-sidebar-logo-height: 50px;
+  // 标签栏高度
+  --g-tabbar-height: 50px;
+  // 工具栏高度
+  --g-toolbar-height: 50px;
+  // 标签页最大最小宽度，两个宽度为同一数值时，则为固定宽度，反之将宽度设置为 unset 则为自适应
+  --g-tabbar-tab-max-width: 150px;
+  --g-tabbar-tab-min-width: 150px;
+}
+
+// 明暗模式 CSS 变量
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root {
+  color-scheme: light;
+
+  &::view-transition-old(root),
+  &::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  &::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  &::view-transition-new(root) {
+    z-index: 9999;
+  }
+
+  --g-box-shadow-color: rgb(0 0 0 / 12%);
+
+  &.dark {
+    color-scheme: dark;
+
+    &::view-transition-old(root) {
+      z-index: 9999;
+    }
+
+    &::view-transition-new(root) {
+      z-index: 1;
+    }
+
+    --g-box-shadow-color: rgb(0 0 0 / 72%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0 0 0 / 40%);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--g-container-bg);
+  box-sizing: border-box;
+  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+* {
+  box-sizing: inherit;
+}
+
+// 右侧内容区针对fixed元素，有横向铺满的需求，可在fixed元素上设置 [data-fixed-calc-width]
+[data-fixed-calc-width] {
+  position: fixed;
+  left: 50%;
+  right: 0;
+}
+
+[data-app-width-mode="adaption"],
+[data-app-width-mode="adaption-min-width"] {
+  [data-fixed-calc-width] {
+    width: calc(100% - var(--g-main-sidebar-actual-width) - var(--g-sub-sidebar-actual-width));
+    transform: translateX(-50%) translateX(calc(var(--g-main-sidebar-actual-width) / 2)) translateX(calc(var(--g-sub-sidebar-actual-width) / 2));
+  }
+}
+
+[data-app-width-mode="center"],
+[data-app-width-mode="center-max-width"] {
+  [data-fixed-calc-width] {
+    width: calc(var(--g-app-width) - var(--g-main-sidebar-actual-width) - var(--g-sub-sidebar-actual-width));
+    transform: translateX(-50%) translateX(calc(var(--g-main-sidebar-actual-width) / 2)) translateX(calc(var(--g-sub-sidebar-actual-width) / 2));
+  }
+
+  @media screen and (max-width: $g-app-width) {
+    [data-fixed-calc-width] {
+      width: calc(100% - var(--g-main-sidebar-actual-width) - var(--g-sub-sidebar-actual-width));
+      transform: translateX(-50%) translateX(calc(var(--g-main-sidebar-actual-width) / 2)) translateX(calc(var(--g-sub-sidebar-actual-width) / 2));
+    }
+  }
+}
+
+[data-mode="mobile"] {
+  [data-fixed-calc-width] {
+    width: 100% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+// textarea 字体跟随系统
+textarea {
+  font-family: inherit;
+}
+
+/* Overrides Floating Vue */
+.v-popper--theme-dropdown,
+.v-popper--theme-tooltip {
+  --at-apply: inline-flex;
+}
+
+.v-popper--theme-dropdown .v-popper__inner,
+.v-popper--theme-tooltip .v-popper__inner {
+  --at-apply: bg-white dark:bg-stone-8 text-dark dark:text-white rounded shadow ring-1 ring-gray-200 dark:ring-gray-800 border border-solid border-stone/20 text-xs font-normal;
+
+  box-shadow: 0 6px 30px rgb(0 0 0 / 10%);
+}
+
+.v-popper--theme-tooltip .v-popper__arrow-inner,
+.v-popper--theme-dropdown .v-popper__arrow-inner {
+  visibility: visible;
+
+  --at-apply: border-white dark:border-stone-8;
+}
+
+.v-popper--theme-tooltip .v-popper__arrow-outer,
+.v-popper--theme-dropdown .v-popper__arrow-outer {
+  --at-apply: border-stone/20;
+}
+
+.v-popper--theme-tooltip.v-popper--shown,
+.v-popper--theme-tooltip.v-popper--shown * {
+  transition: none !important;
+}
+
+[data-overlayscrollbars-contents] {
+  overscroll-behavior: contain;
+}
